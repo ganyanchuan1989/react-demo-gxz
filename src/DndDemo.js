@@ -123,11 +123,24 @@ const DragSortingTable = () => {
       row: DragableBodyRow,
     },
   };
+
+  // 父节点拖到子节点导致丢失问题
+  const isChild= (dataMap, dragId, hoverId) => {
+    if(dragId === hoverId) {
+      return true;
+    } else if(dataMap[hoverId] && dataMap[hoverId].pId) {
+      return isChild(dataMap, dragId, dataMap[hoverId].pId);
+    } else {
+      return false;
+    }
+  }
   const moveRow = useCallback(
     (dragIndex, hoverIndex, dragId, hoverId) => {
-      console.log('data', data)
       let tempData = data;
       const dataMap = generateMap(tempData);
+      if(isChild(dataMap, dragId, hoverId)) {
+        return;
+      }
       const dragRow = dataMap[dragId];
       console.log("dragRow", dragRow);
       const hoverRow = dataMap[hoverId];
