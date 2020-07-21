@@ -78,21 +78,18 @@ const DragSortingTable = () => {
       name: "John Brown",
       age: 32,
       address: "New York No. 1 Lake Park",
-      level: 1,
     },
     {
       id: "id-2",
       name: "Jim Green",
       age: 42,
       address: "London No. 1 Lake Park",
-      level: 1,
     },
     {
       id: "id-3",
       name: "Joe Black",
       age: 32,
       address: "Sidney No. 1 Lake Park",
-      level: 1,
       children: [
         {
           id: "id-3-1",
@@ -100,7 +97,6 @@ const DragSortingTable = () => {
           name: "Joe Black 22",
           age: 42,
           address: "New York No. 2 Lake Park",
-          level: 2,
         },
       ],
     },
